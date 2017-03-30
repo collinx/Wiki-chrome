@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+
+  "name": "Wikipedia Shorts",
+  "description": "This extension shows a short note about the searched content.",
+  "version": "1.0",
+   
+  "homepage_url": "https://wikipedia.org/",
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "popup.html",
+    "default_title" : "Search On Wiki!"
+  },
+
+  "author": "SM Tech",
+   "web_accessible_resources": [
+    "images/*.png",
+    "scripts/*.js"
+  ],
+
+   "content_scripts": [
+        {
+            "js": [
+                "scripts/popup.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+     
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking",
+    "http://*/*",
+    "https://*/*",
+    "*://*/*",
+    "<all_urls>"
+  ]
+}
